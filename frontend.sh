@@ -7,7 +7,7 @@ systemctl start nginx
 #remove old content of the nginx
 rm -rf /usr/share/nginx/html/*
 #download content from remote place
-curl -o /tmp/frontend.sh https://roboshop-artifacts.s3.amazonaws.com/frontend.zip
+curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend.zip
 #navigagte to that directory
 cd /usr/share/nginx/html
 #extract that content
