@@ -24,6 +24,6 @@ systemctl restart catalogue
 #load the mongo.repo file for schema to be loaded
 cp ${path_location}/files/mongodb.repo /etc/yum.repos.d/mongo.repo
 #install mongodb
-yum install mongo-org-shell -y
+yum install mongodb-org-shell -y
 #load the schema
 mongo --host 172.31.13.227 </app/schema/catalogue.js
