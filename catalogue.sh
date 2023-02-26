@@ -1,4 +1,5 @@
 source common.sh
+set -e
 #setup nodejs repos vendor is providing the script to setup nodejs repos
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 #installing nodejs
