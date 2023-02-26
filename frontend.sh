@@ -1,4 +1,5 @@
-path_location=$(pwd)
+source common.sh
+
 #Install Nginx
 yum install nginx -y
 # enable and start nginx
