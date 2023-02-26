@@ -5,10 +5,12 @@ curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 #installing nodejs
 yum install nodejs -y
 #add the user
-useradd roboshop
+#useradd roboshop
 #create and navigate to that app directory
-mkdir /app
+mkdir -p /app
 cd /app
+# remove old app content
+rm -rf /app/*
 #download the app content
 curl -L -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue.zip
 #extract the app content
