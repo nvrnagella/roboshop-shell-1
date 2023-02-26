@@ -2,7 +2,7 @@ source common.sh
 #setiing up yum repos for mongodb
 cp ${path_location}/files/mongodb.repo /etc/yum.repos.d/mongo.repo
 #installing mongodb
-yum install mongodb -y
+yum install mongodb-org -y
 # enable and start mongodb
 systemctl enable mongod
 systemctl start mongod
