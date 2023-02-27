@@ -29,4 +29,4 @@ cp ${path_location}/files/mongodb.repo /etc/yum.repos.d/mongo.repo
 #install mongodb
 yum install mongodb-org-shell -y &>> ${LOG}
 #load the schema
-mongo --host 172.31.13.227 </app/schema/catalogue.js &>> ${LOG}
+mongo --host localhost </app/schema/catalogue.js &>> ${LOG}
