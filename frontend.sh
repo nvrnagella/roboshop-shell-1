@@ -1,7 +1,7 @@
 source common.sh
 
 print_head "Install Nginx"
-yum install nginx -y &>> ${LOG}
+yum install ngin -y &>> ${LOG}
 status_check
 print_head " enable and start nginx "
 systemctl enable nginx &>> ${LOG}
