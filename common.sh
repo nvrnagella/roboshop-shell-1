@@ -6,6 +6,7 @@ status_check (){
       echo SUCCESS
     else
       echo FAILURE
+      echo please check the log file for know the error reason ${LOG}
       exit
   fi
 }
