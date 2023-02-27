@@ -1,11 +1,12 @@
 source common.sh
-#setiing up yum repos for mongodb
+print_head "setiing up yum repos for mongodb"
 cp ${path_location}/files/mongodb.repo /etc/yum.repos.d/mongo.repo
-#installing mongodb
+print_head "installing mongodb"
 yum install mongodb-org -y &>> ${LOG}
-# enable and start mongodb
+print_head "enable and start mongodb"
 systemctl enable mongod &>> ${LOG}
 systemctl start mongod
-#update listen address
+print_head "update listen address"
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
+print_head "restarting mongod"
 systemctl restart mongod
