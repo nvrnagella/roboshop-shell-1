@@ -2,7 +2,12 @@ source common.sh
 
 echo -e "\e[31m Install Nginx \e[0m"
 yum install nginx -y &>> ${LOG}
-echo $?
+if [ $? -eq 0 ]
+  then
+    echo SUCCESS
+  else
+    echo FAILURE
+fi
 echo -e "\e[31m enable and start nginx \e[0m"
 systemctl enable nginx &>> ${LOG}
 echo $?
