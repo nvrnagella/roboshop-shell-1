@@ -1,4 +1,5 @@
 source common.sh
+
 print_head "Redis is offering the repo file as a rpm. Lets install it"
 yum install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y &>> ${LOG}
 status_check
