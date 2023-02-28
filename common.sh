@@ -63,7 +63,7 @@ NODEJS (){
     yum install mongodb-org-shell -y &>> ${LOG}
     status_check
     print_head "load the schema"
-    mongo --host ${component}-dev.nvrnagella.online </app/schema/${component}.js &>> ${LOG}
+    mongo --host mongodb-dev.nvrnagella.online </app/schema/${component}.js &>> ${LOG}
     status_check
   fi
 }
