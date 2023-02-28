@@ -49,7 +49,7 @@ SYSTEMD_SETUP (){
 }
 LOAD_SCHEMA (){
     if [ ${load_schema} == "true" ]; then
-      if [ ${schema_type} == "true" ]; then
+      if [ ${schema_type} == "mongo" ]; then
         print_head "load the mongo.repo file for schema to be loaded"
         cp ${path_location}/files/mongodb.repo /etc/yum.repos.d/mongo.repo
         status_check
@@ -60,7 +60,7 @@ LOAD_SCHEMA (){
         mongo --host mongodb-dev.nvrnagella.online </app/schema/${component}.js &>> ${LOG}
         status_check
       fi
-      if [ ${schema_type} == "true" ]; then
+      if [ ${schema_type} == "mysql" ]; then
         print_head "We need to load the schema. To load schema we need to install mysql client."
         yum install mysql -y
         status_check
@@ -88,7 +88,7 @@ NODEJS (){
 }
 MAVEN (){
   print_head "Maven is a Java Packaging software, Hence we are going to install maven, This indeed takes care of java installation."
-  yum install maven -y
+  yum install maven -y &>> ${LOG}
   status_check
   APP_PREREQ
   print_head "Lets download the dependencies & build the application"
