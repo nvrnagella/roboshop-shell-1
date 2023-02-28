@@ -65,7 +65,7 @@ LOAD_SCHEMA (){
         yum install mysql -y
         status_check
         print_head "Load Schema"
-        mysql -h mysql-dev.nvrnagella.online -uroot -p${root_mysql_password} </app/schema/${component}.sql
+        mysql -h mysql-dev.nvrnagella.online -uroot -p${mysql_root_password} </app/schema/${component}.sql
         status_check
         print_head "This service needs a restart because it is dependent on schema, After loading schema only it will work as expected, Hence we are restarting this service. This"
         systemctl restart ${component}
