@@ -1,5 +1,9 @@
 source common.sh
-
-print_head "Maven is a Java Packaging software, Hence we are going to install maven, This indeed takes care of java installation."
-yum install maven -y &>> ${LOG}
-status_check
+if [ -z "${mysql_root_password}" ]
+then
+  echo mysql_root_password is missing
+  exit 1
+fi
+component=shipping
+schema_load=true
+MAVEN
