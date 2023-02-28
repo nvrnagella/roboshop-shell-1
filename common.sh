@@ -50,13 +50,16 @@ NODEJS (){
   systemctl enable {component} &>> ${LOG}
   systemctl restart {component}
   status_check
-  print_head "load the mongo.repo file for schema to be loaded"
-  cp ${path_location}/files/mongodb.repo /etc/yum.repos.d/mongo.repo
-  status_check
-  print_head "install mongodb"
-  yum install mongodb-org-shell -y &>> ${LOG}
-  status_check
-  print_head "load the schema"
-  mongo --host localhost </app/schema/{component}.js &>> ${LOG}
-  status_check
+  if [ load_schema == true ]
+  then
+    print_head "load the mongo.repo file for schema to be loaded"
+    cp ${path_location}/files/mongodb.repo /etc/yum.repos.d/mongo.repo
+    status_check
+    print_head "install mongodb"
+    yum install mongodb-org-shell -y &>> ${LOG}
+    status_check
+    print_head "load the schema"
+    mongo --host localhost </app/schema/{component}.js &>> ${LOG}
+    status_check
+  fi
 }
