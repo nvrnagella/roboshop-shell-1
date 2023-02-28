@@ -23,7 +23,7 @@ NODEJS (){
   status_check
   print_head "add the user"
   id roboshop &>> ${LOG}
-  if [ $? == 0 ]
+  if [ $? != 0 ]
   then
     useradd roboshop
     status_check
