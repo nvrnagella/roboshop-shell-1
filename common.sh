@@ -93,7 +93,7 @@ MAVEN (){
   APP_PREREQ
   print_head "Lets download the dependencies & build the application"
   mvn clean package &>> ${LOG}
-  mv target/shipping-1.0.jar shipping.jar
+  mv ${path_location}/target/shipping-1.0.jar shipping.jar
   status_check
   SYSTEMD_SETUP
   LOAD_SCHEMA
