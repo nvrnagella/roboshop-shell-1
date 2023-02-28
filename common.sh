@@ -22,8 +22,12 @@ NODEJS (){
   yum install nodejs -y &>> ${LOG}
   status_check
   print_head "add the user"
-  useradd roboshop
-  status_check
+  id roboshop &>> ${LOG}
+  if [ $? == 0 ]
+  then
+    useradd roboshop
+    status_check
+  fi
   print_head "create and navigate to that app directory"
   mkdir -p /app
   cd /app
