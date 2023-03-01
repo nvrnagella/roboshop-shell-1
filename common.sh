@@ -19,8 +19,8 @@ APP_PREREQ () {
     if [ $? != 0 ]
     then
       useradd roboshop
-      status_check
     fi
+    status_check
     print_head "create and navigate to that app directory"
     mkdir -p /app
     cd /app
@@ -79,7 +79,9 @@ NODEJS (){
   print_head "installing nodejs"
   yum install nodejs -y &>> ${LOG}
   status_check
+
   APP_PREREQ
+
   print_head "donwload the dependencies"
   npm install &>> ${LOG}
   status_check

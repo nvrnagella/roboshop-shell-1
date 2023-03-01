@@ -1,8 +1,7 @@
 source common.sh
 
-if [ -z "${mysql_root_password}" ]
-then
-  echo mysql_root_password is missing
+if [ -z "${mysql_root_password}" ];then
+  echo "mysql_root_password is missing"
   exit 1
 fi
 
@@ -17,7 +16,7 @@ yum install mysql-community-server -y &>> ${LOG}
 status_check
 print_head "Start MySQL Service"
 systemctl enable mysqld &>> ${LOG}
-systemctl start mysqld
+systemctl restart mysqld
 status_check
 print_head "We need to change the default root password in order to start using the database service"
 mysql_secure_installation --set-root-pass ${mysql_root_password}
