@@ -1,5 +1,8 @@
 source common.sh
-
+if [ -z "${rabbitmq_root_password}" ];then
+  echo "rabbitmq root password is missing"
+  exit 1
+fi
 print_head "Configure YUM Repos from the script provided by vendor."
 curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | sudo bash &>> ${LOG}
 status_check
