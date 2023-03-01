@@ -119,8 +119,8 @@ DIS (){
   print_head "Lets download the dependencies & build the software."
   cd /app
   go mod init dispatch &>> ${LOG}
-  go get
-  go build &>> ${LOG}
+  go get &>> ${LOG}
+  go build
   status_check
   print_head "updating rabbitmq_root_password in dispatch service file"
   sed -i -e "s/rabbitmq_root_password/${rabbitmq_root_password}/" ${path_location}/files/${component}.service
