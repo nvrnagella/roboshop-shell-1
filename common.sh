@@ -107,7 +107,23 @@ PYTHON (){
   pip3.6 install -r requirements.txt &>> ${LOG}
   status_check
   print_head "updating rabbitmq_root_password in payment service file"
-  sed -i -e "s/rabbitmq_root_password/${rabbitmq_root_password}/" ${path_location}/files/payment.service
+  sed -i -e "s/rabbitmq_root_password/${rabbitmq_root_password}/" ${path_location}/files/${component}.service
+  status_check
+  SYSTEMD_SETUP
+}
+DIS (){
+  print_head "Install GoLang"
+  yum install goland -y &>> ${LOG}
+  status_check
+  APP_PREREQ
+  print_head "Lets download the dependencies & build the software."
+  cd /app
+  go mod init dispatch
+  go get
+  go build
+  status_check
+  print_head "updating rabbitmq_root_password in dispatch service file"
+  sed -i -e "s/rabbitmq_root_password/${rabbitmq_root_password}/" ${path_location}/files/${component}.service
   status_check
   SYSTEMD_SETUP
 }
