@@ -22,3 +22,4 @@ print_head "RabbitMQ comes with a default username / password as guest/guest. Bu
 rabbitmqctl add_user roboshop ${rabbitmq_root_password} &>> ${LOG}
 rabbitmqctl set_user_tags roboshop administrator &>> ${LOG}
 rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>> ${LOG}
+status_check
