@@ -48,7 +48,7 @@ SYSTEMD_SETUP (){
     status_check
 }
 LOAD_SCHEMA (){
-    if [ "${load_schema}" == "true" ]; then
+    if [ "${schema_load}" == "true" ]; then
       if [ "${schema_type}" == "mongo" ]; then
         print_head "load the mongo.repo file for schema to be loaded"
         cp ${path_location}/files/mongodb.repo /etc/yum.repos.d/mongo.repo
