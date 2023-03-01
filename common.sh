@@ -118,7 +118,7 @@ DIS (){
   APP_PREREQ
   print_head "Lets download the dependencies & build the software."
   cd /app
-  go mod init dispatch
+  go mod init dispatch &>> ${LOG}
   go get
   go build
   status_check
