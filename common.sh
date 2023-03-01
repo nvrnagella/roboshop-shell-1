@@ -62,7 +62,7 @@ LOAD_SCHEMA (){
       fi
       if [ "${schema_type}" == "mysql" ]; then
         print_head "We need to load the schema. To load schema we need to install mysql client."
-        yum install mysql -y
+        yum install mysql -y &>> ${LOG}
         status_check
         print_head "Load Schema"
         mysql -h mysql-dev.nvrnagella.online -uroot -p${mysql_root_password} < /app/schema/${component}.sql
