@@ -19,6 +19,6 @@ print_head "Start RabbitMQ Service"
 systemctl enable rabbitmq-server &>> ${LOG}
 systemctl start rabbitmq-server
 print_head "RabbitMQ comes with a default username / password as guest/guest. But this user cannot be used to connect. Hence, we need to create one user for the application."
-rabbitmqctl add_user roboshop ${rabbitmq_root_password}
-rabbitmqctl set_user_tags roboshop administrator
-rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
+rabbitmqctl add_user roboshop ${rabbitmq_root_password} &>> ${LOG}
+rabbitmqctl set_user_tags roboshop administrator &>> ${LOG}
+rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>> ${LOG}
