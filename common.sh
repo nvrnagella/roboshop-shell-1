@@ -120,7 +120,7 @@ DIS (){
   cd /app
   go mod init dispatch &>> ${LOG}
   go get
-  go build
+  go build &>> ${LOG}
   status_check
   print_head "updating rabbitmq_root_password in dispatch service file"
   sed -i -e "s/rabbitmq_root_password/${rabbitmq_root_password}/" ${path_location}/files/${component}.service
