@@ -65,7 +65,7 @@ LOAD_SCHEMA (){
         yum install mysql -y &>> ${LOG}
         status_check
         print_head "Load Schema"
-        mysql -h mysql-dev.nvrnagella.online -uroot -p${mysql_root_password} < /app/schema/${component}.sql
+        mysql -h mysql-dev.nvrnagella.online -uroot -p${mysql_root_password} < /app/schema/${component}.sql &>> ${LOG}
         status_check
       fi
     fi
