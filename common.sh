@@ -93,7 +93,7 @@ MAVEN (){
   APP_PREREQ
   print_head "Lets download the dependencies & build the application"
   mvn clean package &>> ${LOG}
-  mv target/{component}-1.0.jar {component}.jar
+  mv target/${component}-1.0.jar ${component}.jar
   status_check
   SYSTEMD_SETUP
   LOAD_SCHEMA
