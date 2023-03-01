@@ -98,3 +98,16 @@ MAVEN (){
   SYSTEMD_SETUP
   LOAD_SCHEMA
 }
+PYTHON (){
+  print_head "Install Python 3.6"
+  yum install python36 gcc python3-devel -y &>> ${LOG}
+  status_check
+  APP_PREREQ
+  print_head "Lets download the dependencies."
+  pip3.6 install -r requirements.txt &>> ${LOG}
+  status_check
+  print_head "updating rabbitmq_root_password in payment service file"
+  sed -i -e "s/rabbitmq_root_password/${rabbitmq_root_password}/" ${path_location}/files/payment.service
+  status_check
+  SYSTEMD_SETUP
+}
