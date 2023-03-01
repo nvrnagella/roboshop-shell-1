@@ -113,7 +113,7 @@ PYTHON (){
 }
 DIS (){
   print_head "Install GoLang"
-  yum install goland -y &>> ${LOG}
+  yum install golang -y &>> ${LOG}
   status_check
   APP_PREREQ
   print_head "Lets download the dependencies & build the software."
