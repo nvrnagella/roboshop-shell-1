@@ -77,9 +77,7 @@ NODEJS (){
   print_head "installing nodejs"
   yum install nodejs -y &>> ${LOG}
   status_check
-
-  APP_PREREQ
-
+  APP_PRERE
   print_head "donwload the dependencies"
   npm install &>> ${LOG}
   status_check
